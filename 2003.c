@@ -2,32 +2,30 @@
 #define SIZE 10000
 int main()
 {
-    int num; //수열 수
-    int res; //수열 합
+    int num;
+    int res;
     int arr[SIZE];
-    int sum, cnt = 0;
+    int sum = 0, cnt = 0;
+    int i = 0, j = 0;
 
     scanf("%d %d", &num, &res);
     for (int i = 0; i < num; i++)
     {
         scanf("%d", &arr[i]);
     }
-
-    for (int i = 0; i < num; i++)
+    i = 0;
+    while (i < num)
     {
-        sum = arr[i];
-        if (arr[i] == res) cnt++;
-        for (int j = i + 1; j < num; j++)
+        sum += arr[j];
+        if (sum < res && j < num) j++;
+        else
         {
-            sum += arr[j];
-            if (sum == res)
-            {
-                cnt++;
-                break;
-            }
+            if (sum == res) cnt++;
+            i++;
+            j = i;
+            sum = 0;
         }
     }
-
     printf("%d", cnt);
     return 0;
 }
