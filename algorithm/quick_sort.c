@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define swap(type, x, y) do { type t = x; x = y; y = t;} while (0) //전역함수 swap 정의
+#define swap(type, x, y) do {type t = x; x = y; y = t;} while (0) //전역함수 swap 정의
 
-void quick(int a[], int left, int right) //퀵 정렬 함수
+void quick(int a[], int left, int right)
 {
     int pl = left; //왼쪽 커서
     int pr = right; //오른쪽 커서
-    int x = a[(pl + pr) / 2]; //그룹의 가운데 요소를 피벗으로 설정 
+    int x = a[(pl + pr) / 2]; //그룹의 가운데 요소를 피벗으로 설정
     do {
         while (a[pl] < x) pl++;
         while (a[pr] > x) pr--;
