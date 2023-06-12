@@ -11,10 +11,10 @@ for _ in range(n):
 
 std = new_round(n * 0.15) 
 li.sort()
-print(li[std:-std])
-print(std)
 if n - std * 2 <= 0:
     print(0)
+elif std == 0:
+   print(new_round(sum(li) / len(li)))
 elif n - std * 2 == 1:
    print(li[std])
 else:
