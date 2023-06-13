@@ -1,13 +1,14 @@
 import sys
 input = sys.stdin.readline
 n, m = map(int,input().split())
-li = []
+li = {}
 res = []
 for _ in range(n):
-    li.append(input())
+    key = input()
+    li[key] = 1
 for _ in range(m):
     who = input()
-    if who in li:
+    if li.get(who, 0) == 1:
         res.append(who)
 res.sort()
 print(len(res))
