@@ -6,7 +6,7 @@ for i in word:
     else:
         dic[i.upper()] += 1
 res = sorted(dic.items(), key = lambda x : x[1])
-if res[-1][1] == res[-2][1]:
+if len(res) > 1 and res[-1][1] == res[-2][1]:
     print("?")
 else:
     print(res[-1][0])
