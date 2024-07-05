@@ -45,6 +45,8 @@ public class Main {
 
     //순서 상관없이 2개 고르기
     public static void dfs(int depth, int start, boolean[] check, int[] cur) {
+        //case 1 : 벌
+
         if (depth == 2) {
 
             for (int i = 0; i < N; i++) {
@@ -77,7 +79,14 @@ public class Main {
         boolean[] check = new boolean[N];
         int[] cur = new int[2];
         calculateSumArray();
-        dfs(0, 0, check, cur);
+        cur[0] = 0;
+        check[0] = true;
+        dfs(1, 0, check, cur);
+        check[0] = false;
+
+        cur[0] = N - 1;
+        check[N - 1] = true;
+        dfs(1, 1, check, cur);
         System.out.println(max);
     }
 }
