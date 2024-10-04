@@ -1,26 +1,17 @@
 class Solution {
+    static int n;
     static int answer = 0;
-    public static void dfs(int depth, int[] numbers, int target, boolean[] check, int N) {
-        if (depth == N) {
-            int sum = 0;
-            for (int i = 0; i < N; i++) {
-                if (check[i]) sum += numbers[i] * (-1);
-                else sum += numbers[i];
-            }
-            if (sum == target) answer += 1;
+    public static void dfs(int depth, int[] numbers, int target, int sum) {
+        if (depth == n) {
+            if (target == sum) answer++;
             return ;
-            
         }
-        check[depth] = true;
-        dfs(depth + 1, numbers, target, check, N);
-        check[depth] = false;
-        dfs(depth + 1, numbers, target, check, N);
-        
+        dfs(depth + 1, numbers, target, sum + numbers[depth]);
+        dfs(depth + 1, numbers, target, sum - numbers[depth]);
     }
     public int solution(int[] numbers, int target) {
-        int N = numbers.length;
-        boolean[] check = new boolean[N];
-        dfs(0, numbers, target, check, N);
+        n = numbers.length;
+        dfs(0, numbers, target, 0);
         return answer;
     }
 }
